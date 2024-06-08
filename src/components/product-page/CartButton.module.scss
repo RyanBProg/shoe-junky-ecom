@@ -1,0 +1,22 @@
+@use "../../scss/global";
+
+.btn {
+  @include global.flex-center(row, 15px);
+  @include global.font(1rem, 700, auto, auto);
+
+  width: 100%;
+  background-color: global.$orange;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px global.$orange;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  & img {
+    filter: brightness(0) saturate(100%);
+    margin: 0;
+  }
+}
