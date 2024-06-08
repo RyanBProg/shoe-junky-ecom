@@ -1,0 +1,29 @@
+@use "scss/global";
+@use "scss/boilerplate";
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap");
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  color: global.$black;
+  background-color: global.$light-grayish-blue;
+}
+
+h1 {
+  @include global.font(3rem, 700, 0.9, 0.01rem);
+}
+
+h2 {
+  @include global.font(2.4rem, 600, 1, 0.02rem);
+}
+
+h3 {
+  @include global.font(2rem, 600, 1, 0.02rem);
+}
+
+h4 {
+  @include global.font(1.4rem, 500, 1.2, 0.03rem);
+}
+
+p {
+  @include global.font(1rem, 400, 1.2, 0.03rem);
+}
