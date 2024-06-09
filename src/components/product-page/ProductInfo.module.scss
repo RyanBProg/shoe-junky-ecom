@@ -1,10 +1,12 @@
 @use "../../scss/global";
 
-.description_cont {
+// info container
+
+.cont__description {
   padding: global.$gutter;
   max-width: 550px;
 
-  & .controls_cont {
+  & .cont__controls {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
@@ -14,5 +16,133 @@
       flex-direction: row;
       gap: 10px;
     }
+  }
+}
+
+// text container
+
+.cont__text {
+  & h2 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    color: global.$grayish-blue;
+  }
+
+  & h1 {
+    margin: 15px 0 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  & p {
+    max-width: 60ch;
+    margin: 20px 0;
+    color: global.$very-dark-blue;
+  }
+
+  & .price_detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    & div {
+      display: flex;
+      align-items: center;
+    }
+
+    & .price {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    & .discount {
+      background-color: global.$black;
+      color: global.$white;
+      padding: 3px 8px;
+      border-radius: 5px;
+    }
+
+    & .total {
+      color: global.$grayish-blue;
+      text-decoration: line-through;
+      display: inline-block;
+      font-weight: 700;
+      right: 0;
+    }
+  }
+}
+
+// qty component
+
+.cont__qty {
+  @include global.flex-space(row);
+  @include global.font(1rem, 700, normal, normal);
+  background-color: global.$light-grayish-blue;
+  height: 50px;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.15));
+  width: 100%;
+
+  @media (min-width: 600px) {
+    width: 200px;
+  }
+
+  & button {
+    border: none;
+    height: 100%;
+    padding: 15px;
+    background-color: inherit;
+  }
+
+  & button:hover,
+  button:focus {
+    background-color: global.$white;
+    cursor: pointer;
+  }
+
+  & button:hover img,
+  button:focus img {
+    opacity: 0.7;
+  }
+
+  & button:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  & button:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+// cart button
+
+.btn__cart {
+  @include global.flex-center(row, 15px);
+  @include global.font(1rem, 700, normal, normal);
+
+  background-color: global.$orange;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 5px rgba(255, 125, 26, 0.15));
+  box-shadow: 0 25px 50px -12px global.$orange;
+  width: min(550px, 100%);
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  & img {
+    filter: brightness(0) saturate(100%);
+    margin: 0;
   }
 }

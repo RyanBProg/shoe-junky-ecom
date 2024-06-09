@@ -1,4 +1,4 @@
-import styles from "./ProductQuantity.module.scss";
+import styles from "./ProductInfo.module.scss";
 import minusIcon from "../../assets/images/icon-minus.svg";
 import plusIcon from "../../assets/images/icon-plus.svg";
 
@@ -9,7 +9,7 @@ type Props = {
 
 export default function ProductQuantity({ qty, setQty }: Props) {
   return (
-    <div className={styles.container}>
+    <div className={styles.cont__qty}>
       <button
         className="minus"
         onClick={() => {

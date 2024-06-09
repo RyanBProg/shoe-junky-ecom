@@ -11,9 +11,9 @@ type Props = {
 export default function ProductInfo({ qty, setQty }: Props) {
   return (
     <>
-      <div className={styles.description_cont}>
+      <div className={styles.cont__description}>
         <ProductDescription />
-        <div className={styles.controls_cont}>
+        <div className={styles.cont__controls}>
           <ProductQuantity qty={qty} setQty={setQty} />
           <CartButton />
         </div>

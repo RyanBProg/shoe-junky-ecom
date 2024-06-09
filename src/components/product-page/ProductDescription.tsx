@@ -1,8 +1,8 @@
-import styles from "./ProductDescription.module.scss";
+import styles from "./ProductInfo.module.scss";
 
 export default function ProductDescription() {
   return (
-    <div className={styles.container}>
+    <div className={styles.cont__text}>
       <h2>Sneaker Company</h2>
       <h1>Fall Limited Edition Sneakers</h1>
       <p>
