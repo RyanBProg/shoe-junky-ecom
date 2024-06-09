@@ -1,7 +1,8 @@
 import "./App.scss";
+import { useState } from "react";
+import ProductDescription from "./components/product-page/ProductDescription";
 import CartButton from "./components/product-page/CartButton";
 import ProductQuantity from "./components/product-page/ProductQuantity";
-import { useState } from "react";
 
 function App() {
   const [qty, setQty] = useState(0);
@@ -9,7 +10,7 @@ function App() {
   return (
     <>
       <div>
-        <h1>test</h1>
+        <ProductDescription />
         <ProductQuantity qty={qty} setQty={setQty} />
         <CartButton />
       </div>
