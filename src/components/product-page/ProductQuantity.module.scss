@@ -6,7 +6,12 @@
   background-color: global.$light-grayish-blue;
   height: 50px;
   border-radius: 10px;
-  box-shadow: 0 25px 50px 5px global.$light-grayish-blue;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.15));
+  width: 100%;
+
+  @media (min-width: 600px) {
+    width: 200px;
+  }
 
   & button {
     border: none;
