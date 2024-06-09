@@ -2,7 +2,7 @@
 
 .btn {
   @include global.flex-center(row, 15px);
-  @include global.font(1rem, 700, auto, auto);
+  @include global.font(1rem, 700, normal, normal);
 
   width: 100%;
   background-color: global.$orange;
