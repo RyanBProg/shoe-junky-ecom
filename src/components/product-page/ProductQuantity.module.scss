@@ -1,0 +1,36 @@
+@use "../../scss/global";
+
+.container {
+  @include global.flex-space(row);
+  @include global.font(1rem, 700, normal, normal);
+  background-color: global.$light-grayish-blue;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px 5px global.$light-grayish-blue;
+
+  & button {
+    border: none;
+    height: 100%;
+    padding: 15px;
+    background-color: inherit;
+  }
+
+  & button:hover,
+  button:focus {
+    background-color: global.$white;
+    cursor: pointer;
+  }
+
+  & button:hover img,
+  button:focus img {
+    opacity: 0.7;
+  }
+
+  & button:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  & button:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+}
