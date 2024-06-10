@@ -10,6 +10,10 @@
   & .product__img {
     object-fit: cover;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (min-width: 600px) {
       width: calc(100% - 20px * 2);
       border-radius: 20px;

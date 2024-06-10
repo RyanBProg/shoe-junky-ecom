@@ -11,13 +11,20 @@ import productThum4 from "../../assets/images/image-product-4-thumbnail.jpg";
 import leftArrow from "../../assets/images/icon-previous.svg";
 import rightArrow from "../../assets/images/icon-next.svg";
 
-export default function ProductGallery() {
+type Props = {
+  setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function ProductGallery({ setLightboxOpen }: Props) {
   return (
     <div className={styles.cont__gallery}>
       <img
         className={styles.product__img}
         src={productImage1}
         alt="product image"
+        onClick={() => {
+          setLightboxOpen(true);
+        }}
       />
       <button className={styles.btn__prev}>
         <img src={leftArrow} alt="previous image" />

@@ -1,0 +1,83 @@
+@use "../../scss/global";
+
+.background {
+  height: max(100dvh, 100%, max-content);
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+
+  & .gallery {
+    @media (min-width: 600px) {
+      max-width: 700px;
+      min-width: 0;
+    }
+
+    & .cont__product__img {
+      position: relative;
+
+      & .product__img {
+        object-fit: cover;
+        width: calc(100% - 40px * 2);
+        border-radius: 20px;
+        margin: 40px;
+      }
+
+      & button {
+        position: absolute;
+        top: 50%;
+        height: 45px;
+        width: 45px;
+        border-radius: 100%;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: global.$light-grayish-blue;
+
+        &:hover {
+          cursor: pointer;
+          background-color: global.$orange;
+        }
+      }
+
+      & .btn__prev {
+        left: 20px;
+      }
+
+      & .btn__next {
+        right: 20px;
+      }
+
+      & .btn__exit {
+        top: -15px;
+        right: 15px;
+      }
+    }
+
+    & .thumbnails {
+      margin: 40px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      width: calc(100% - 40px * 2);
+
+      & img {
+        border-radius: 10px;
+        min-width: 0;
+        max-width: 100%;
+        height: auto;
+
+        &:hover,
+        :focus {
+          filter: grayscale(0.3);
+          outline: global.$orange solid 2px;
+          outline-offset: 3px;
+        }
+      }
+    }
+  }
+}
