@@ -3,14 +3,14 @@
 .cont__gallery {
   position: relative;
 
-  @media (min-width: 600px) {
+  @media (min-width: global.$width-mobile) {
     max-width: 500px;
   }
 
   & .product__img {
     object-fit: cover;
 
-    @media (min-width: 600px) {
+    @media (min-width: global.$width-mobile) {
       width: calc(100% - 20px * 2);
       border-radius: 20px;
       margin: 20px;
@@ -40,7 +40,7 @@
       stroke: global.$orange;
     }
 
-    @media (min-width: 600px) {
+    @media (min-width: global.$width-mobile) {
       display: none;
     }
   }
@@ -58,7 +58,7 @@
   & .thumbnails {
     display: none;
 
-    @media (min-width: 600px) {
+    @media (min-width: global.$width-mobile) {
       margin: 20px;
       display: flex;
       justify-content: space-between;

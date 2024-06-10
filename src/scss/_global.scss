@@ -9,6 +9,8 @@ $light-grayish-blue: hsl(223, 64%, 98%);
 $white: hsl(0, 0%, 100%);
 $black: hsl(0, 0%, 0%);
 
+$width-mobile: 700px;
+
 // *** mix-ins *** //
 
 @mixin flex-center($direction, $gap) {
