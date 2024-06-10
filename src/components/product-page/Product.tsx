@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useMediaQuery from "../../utils/useMediaQuery";
 import styles from "./Product.module.scss";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
@@ -23,6 +24,7 @@ export default function Product() {
   const [qty, setQty] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
+  const isMobile = useMediaQuery("(max-width: 700px)");
 
   return (
     <div>
@@ -32,10 +34,11 @@ export default function Product() {
           imageIndex={imageIndex}
           setImageIndex={setImageIndex}
           images={images}
+          isMobile={isMobile}
         />
         <ProductInfo qty={qty} setQty={setQty} />
       </div>
-      {lightboxOpen && (
+      {!isMobile && lightboxOpen && (
         <Lightbox
           setLightboxOpen={setLightboxOpen}
           imageIndex={imageIndex}

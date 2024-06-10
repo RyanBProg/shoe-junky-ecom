@@ -1,13 +1,12 @@
 import styles from "./ProductGallery.module.scss";
 import { ProductImage } from "../../utils/types/productPage";
-import leftArrow from "../../assets/images/icon-previous.svg";
-import rightArrow from "../../assets/images/icon-next.svg";
 
 type Props = {
   setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
   imageIndex: number;
   setImageIndex: React.Dispatch<React.SetStateAction<number>>;
   images: ProductImage[];
+  isMobile: boolean;
 };
 
 export default function ProductGallery({
@@ -15,15 +14,18 @@ export default function ProductGallery({
   imageIndex,
   setImageIndex,
   images,
+  isMobile,
 }: Props) {
   return (
     <div className={styles.cont__gallery}>
       <img
-        className={styles.product__img}
+        className={`${styles.product__img} ${
+          !isMobile && styles.img__clickable
+        }`}
         src={images[imageIndex].full}
         alt="product image"
         onClick={() => {
-          setLightboxOpen(true);
+          !isMobile && setLightboxOpen(true);
         }}
       />
       <button
@@ -32,7 +34,15 @@ export default function ProductGallery({
         onClick={() => {
           setImageIndex((prev) => prev - 1);
         }}>
-        <img src={leftArrow} alt="previous image" />
+        <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11 1 3 9l8 8"
+            stroke="#1D2026"
+            stroke-width="3"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
       </button>
       <button
         className={styles.btn__next}
@@ -40,7 +50,15 @@ export default function ProductGallery({
         onClick={() => {
           setImageIndex((prev) => prev + 1);
         }}>
-        <img src={rightArrow} alt="next image" />
+        <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="m2 1 8 8-8 8"
+            stroke="#1D2026"
+            stroke-width="3"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
       </button>
       <div className={styles.thumbnails}>
         {images.map((item, index) => {
