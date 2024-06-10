@@ -100,25 +100,26 @@
     height: 100%;
     padding: 15px;
     background-color: inherit;
-  }
+    transition: background-color 300ms ease;
 
-  & button:hover,
-  button:focus {
-    background-color: global.$white;
-    cursor: pointer;
-  }
+    &:hover,
+    :focus {
+      background-color: global.$white;
+      cursor: pointer;
+    }
 
-  & button:hover img,
-  button:focus img {
-    opacity: 0.7;
-  }
+    &:hover img,
+    :focus img {
+      opacity: 0.7;
+    }
 
-  & button:first-child {
-    border-radius: 10px 0 0 10px;
-  }
+    &:first-child {
+      border-radius: 10px 0 0 10px;
+    }
 
-  & button:last-child {
-    border-radius: 0 10px 10px 0;
+    &:last-child {
+      border-radius: 0 10px 10px 0;
+    }
   }
 }
 
@@ -134,6 +135,7 @@
   border-radius: 10px;
   filter: drop-shadow(0 0 5px rgba(255, 125, 26, 0.6));
   width: min(550px, 100%);
+  transition: opacity 300ms ease;
 
   &:hover {
     cursor: pointer;
