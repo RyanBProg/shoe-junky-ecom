@@ -51,34 +51,19 @@ export default function Lightbox({
           </button>
         </div>
         <div className={styles.thumbnails}>
-          <img
-            src={images[0].thumb}
-            onClick={() => {
-              setImageIndex(0);
-            }}
-            alt="product image thumbnail"
-          />
-          <img
-            src={images[1].thumb}
-            onClick={() => {
-              setImageIndex(1);
-            }}
-            alt="product image thumbnail"
-          />
-          <img
-            src={images[2].thumb}
-            onClick={() => {
-              setImageIndex(2);
-            }}
-            alt="product image thumbnail"
-          />
-          <img
-            src={images[3].thumb}
-            onClick={() => {
-              setImageIndex(3);
-            }}
-            alt="product image thumbnail"
-          />
+          {images.map((item, index) => {
+            return (
+              <img
+                key={index}
+                className={imageIndex === index ? styles.img__active : ""}
+                src={item.thumb}
+                onClick={() => {
+                  setImageIndex(index);
+                }}
+                alt="product image thumbnail"
+              />
+            );
+          })}
         </div>
       </div>
     </div>

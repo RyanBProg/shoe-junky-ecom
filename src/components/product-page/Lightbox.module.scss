@@ -73,10 +73,15 @@
 
         &:hover,
         :focus {
-          filter: grayscale(0.3);
-          outline: global.$orange solid 2px;
-          outline-offset: 3px;
+          cursor: pointer;
+          filter: grayscale(0.5);
         }
+      }
+
+      & .img__active {
+        filter: grayscale(0.3);
+        outline: global.$orange solid 2px;
+        outline-offset: 2px;
       }
     }
   }
