@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styles from "./ProductGallery.module.scss";
 import productImage1 from "../../assets/images/image-product-1.jpg";
 import productThum1 from "../../assets/images/image-product-1-thumbnail.jpg";
@@ -15,11 +14,15 @@ const images = [productImage1, productImage2, productImage3, productImage4];
 
 type Props = {
   setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  imageIndex: number;
+  setImageIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export default function ProductGallery({ setLightboxOpen }: Props) {
-  const [imageIndex, setImageIndex] = useState(0);
-
+export default function ProductGallery({
+  setLightboxOpen,
+  imageIndex,
+  setImageIndex,
+}: Props) {
   return (
     <div className={styles.cont__gallery}>
       <img
