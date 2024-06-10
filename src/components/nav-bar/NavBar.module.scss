@@ -1,0 +1,109 @@
+@use "../../scss/global";
+
+.navbar {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid global.$grayish-blue;
+  max-width: 1000px;
+  padding: 1px 20px;
+
+  @media (max-width: global.$width-mobile) {
+    padding: 10px 20px;
+  }
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    & .btn__mobile_menu {
+      display: none;
+
+      @media (max-width: global.$width-mobile) {
+        display: block;
+        background-color: transparent;
+        border: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      & .menu__icon {
+        height: 25px;
+        width: 25px;
+      }
+    }
+
+    & .navbar_logo {
+      width: 40px;
+    }
+
+    & .navbar__nav {
+      @media (max-width: global.$width-mobile) {
+        display: none;
+      }
+
+      & nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        & li {
+          height: 90px;
+          text-decoration: none;
+          color: global.$dark-grayish-blue;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            transform: translateY(1px);
+            color: global.$black;
+            border-bottom: 2px solid global.$orange;
+          }
+        }
+      }
+    }
+  }
+
+  & .navbar__inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    & .navbar__cart {
+      height: 25px;
+      width: 25px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover path {
+        fill: global.$black;
+      }
+    }
+
+    & .navbar__profile {
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      transition: outline 100ms ease;
+
+      @media (max-width: global.$width-mobile) {
+        height: 40px;
+        width: 40px;
+      }
+
+      &:hover {
+        outline: 2px solid global.$orange;
+        outline-offset: 2px;
+      }
+    }
+  }
+}

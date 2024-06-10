@@ -5,8 +5,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 20px;
 
   @media (min-width: global.$width-mobile) {
     flex-direction: row;
+    gap: 0;
   }
 }
