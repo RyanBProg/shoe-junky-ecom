@@ -1,28 +1,21 @@
 import styles from "./Lightbox.module.scss";
-import productImage1 from "../../assets/images/image-product-1.jpg";
-import productThum1 from "../../assets/images/image-product-1-thumbnail.jpg";
-import productImage2 from "../../assets/images/image-product-2.jpg";
-import productThum2 from "../../assets/images/image-product-2-thumbnail.jpg";
-import productImage3 from "../../assets/images/image-product-3.jpg";
-import productThum3 from "../../assets/images/image-product-3-thumbnail.jpg";
-import productImage4 from "../../assets/images/image-product-4.jpg";
-import productThum4 from "../../assets/images/image-product-4-thumbnail.jpg";
+import { ProductImage } from "../../utils/types/productPage";
 import leftArrow from "../../assets/images/icon-previous.svg";
 import rightArrow from "../../assets/images/icon-next.svg";
 import exitIcon from "../../assets/images/icon-close.svg";
-
-const images = [productImage1, productImage2, productImage3, productImage4];
 
 type Props = {
   setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
   imageIndex: number;
   setImageIndex: React.Dispatch<React.SetStateAction<number>>;
+  images: ProductImage[];
 };
 
 export default function Lightbox({
   setLightboxOpen,
   imageIndex,
   setImageIndex,
+  images,
 }: Props) {
   return (
     <div className={styles.background}>
@@ -30,7 +23,7 @@ export default function Lightbox({
         <div className={styles.cont__product__img}>
           <img
             className={styles.product__img}
-            src={images[imageIndex]}
+            src={images[imageIndex].full}
             alt="product image"
           />
           <button
@@ -59,28 +52,28 @@ export default function Lightbox({
         </div>
         <div className={styles.thumbnails}>
           <img
-            src={productThum1}
+            src={images[0].thumb}
             onClick={() => {
               setImageIndex(0);
             }}
             alt="product image thumbnail"
           />
           <img
-            src={productThum2}
+            src={images[1].thumb}
             onClick={() => {
               setImageIndex(1);
             }}
             alt="product image thumbnail"
           />
           <img
-            src={productThum3}
+            src={images[2].thumb}
             onClick={() => {
               setImageIndex(2);
             }}
             alt="product image thumbnail"
           />
           <img
-            src={productThum4}
+            src={images[3].thumb}
             onClick={() => {
               setImageIndex(3);
             }}
