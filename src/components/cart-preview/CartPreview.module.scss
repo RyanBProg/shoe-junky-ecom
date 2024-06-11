@@ -7,6 +7,7 @@
   top: 85px;
   right: 20px;
   width: 450px;
+  min-height: 200px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -26,10 +27,16 @@
     padding: 20px 0 30px 20px;
   }
 
+  & > p {
+    margin-top: 50px;
+  }
+
   & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin: 20px 0;
     width: calc(100% - 40px);
-    min-height: 100px;
     max-height: fit-content;
 
     @media (max-width: global.$width-mobile) {

@@ -20,7 +20,10 @@ function Item({ cartItem, cartDispatch }: CartItemProps) {
           <span>$350.00</span>
         </div>
       </div>
-      <button>
+      <button
+        onClick={() => {
+          cartDispatch({ type: "removed_item", id: cartItem.id });
+        }}>
         <img src={deleteIcon} alt="delete icon" />
       </button>
     </li>
@@ -39,16 +42,18 @@ export default function CartPreview({
   return (
     <div className={styles.cart__cont}>
       <h3>Cart</h3>
-      <ul>
-        {cartState.length > 0 ? (
-          cartState.map((item) => {
-            return <Item cartItem={item} cartDispatch={cartDispatch} />;
-          })
-        ) : (
-          <p>Your cart is empty</p>
-        )}
-      </ul>
-      <button>Checkout</button>
+      {cartState.length > 0 ? (
+        <>
+          <ul>
+            {cartState.map((item) => {
+              return <Item cartItem={item} cartDispatch={cartDispatch} />;
+            })}
+          </ul>
+          <button>Checkout</button>
+        </>
+      ) : (
+        <p>Your cart is empty</p>
+      )}
     </div>
   );
 }
