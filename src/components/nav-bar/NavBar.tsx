@@ -1,23 +1,34 @@
 import styles from "./NavBar.module.scss";
+import { useState } from "react";
 import logo from "../../assets/images/logo.svg";
 import profileIcon from "../../assets/images/image-avatar.png";
 import menuIcon from "../../assets/images/icon-menu.svg";
+import closeIcon from "../../assets/images/icon-close.svg";
 
 export default function NavBar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className={styles.navbar}>
-      <div>
-        <button className={styles.btn__mobile_menu}>
-          <img
-            src={menuIcon}
-            className={styles.menu__icon}
-            alt="mobile menu icon"
-          />
+    <header>
+      <div className={styles.menu__cont}>
+        <button
+          className={styles.btn__mobile_menu}
+          onClick={() => {
+            setMenuOpen(true);
+          }}>
+          <img src={menuIcon} alt="mobile menu icon" />
         </button>
         <a href="#">
-          <img src={logo} className={styles.navbar__logo} alt="sneakers logo" />
+          <img src={logo} alt="sneakers logo" />
         </a>
-        <div className={styles.navbar__nav}>
+        <div className={`${styles.navbar} ${menuOpen && styles.navbar__open}`}>
+          <button
+            className={styles.btn__navbar_close}
+            onClick={() => {
+              setMenuOpen(false);
+            }}>
+            <img src={closeIcon} alt="close menu icon" />
+          </button>
           <nav>
             <ul>
               <li>
@@ -57,6 +68,6 @@ export default function NavBar() {
           className={styles.navbar__profile}
         />
       </div>
-    </div>
+    </header>
   );
 }
