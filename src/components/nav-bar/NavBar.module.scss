@@ -20,6 +20,10 @@ header {
     align-items: center;
     gap: 30px;
 
+    @media (max-width: global.$width-mobile) {
+      gap: 15px;
+    }
+
     & .btn__mobile_menu {
       display: none;
 
@@ -117,6 +121,10 @@ header {
     justify-content: center;
     align-items: center;
     gap: 30px;
+
+    @media (max-width: global.$width-mobile) {
+      gap: 15px;
+    }
 
     & .navbar__cart {
       height: 25px;
