@@ -1,5 +1,5 @@
 import styles from "./ProductGallery.module.scss";
-import { ProductImage } from "../../utils/types/productPage";
+import { ProductImage } from "../../utils/types/types";
 
 type Props = {
   setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
