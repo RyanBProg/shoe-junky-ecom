@@ -1,18 +1,18 @@
 import styles from "./Lightbox.module.scss";
-import { ProductImage } from "../../utils/types/types";
+import { ProductType } from "../../utils/types/types";
 
 type Props = {
   setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
   imageIndex: number;
   setImageIndex: React.Dispatch<React.SetStateAction<number>>;
-  images: ProductImage[];
+  productData: ProductType;
 };
 
 export default function Lightbox({
   setLightboxOpen,
   imageIndex,
   setImageIndex,
-  images,
+  productData,
 }: Props) {
   return (
     <div className={styles.background}>
@@ -20,7 +20,7 @@ export default function Lightbox({
         <div className={styles.cont__product__img}>
           <img
             className={styles.product__img}
-            src={images[imageIndex].full}
+            src={productData.images[imageIndex].full}
             alt="product image"
           />
           <button
@@ -41,7 +41,7 @@ export default function Lightbox({
           </button>
           <button
             className={`${styles.btn__next} ${styles.btn__arrow}`}
-            disabled={imageIndex === images.length - 1}
+            disabled={imageIndex === productData.images.length - 1}
             onClick={() => {
               setImageIndex((prev) => prev + 1);
             }}>
@@ -70,7 +70,7 @@ export default function Lightbox({
           </button>
         </div>
         <div className={styles.thumbnails}>
-          {images.map((item, index) => {
+          {productData.images.map((item, index) => {
             return (
               <img
                 key={index}

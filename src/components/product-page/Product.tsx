@@ -4,23 +4,13 @@ import styles from "./Product.module.scss";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import Lightbox from "./Lightbox";
-import productImage1 from "../../assets/images/image-product-1.jpg";
-import productThum1 from "../../assets/images/image-product-1-thumbnail.jpg";
-import productImage2 from "../../assets/images/image-product-2.jpg";
-import productThum2 from "../../assets/images/image-product-2-thumbnail.jpg";
-import productImage3 from "../../assets/images/image-product-3.jpg";
-import productThum3 from "../../assets/images/image-product-3-thumbnail.jpg";
-import productImage4 from "../../assets/images/image-product-4.jpg";
-import productThum4 from "../../assets/images/image-product-4-thumbnail.jpg";
+import { ProductType } from "../../utils/types/types";
 
-const images = [
-  { full: productImage1, thumb: productThum1 },
-  { full: productImage2, thumb: productThum2 },
-  { full: productImage3, thumb: productThum3 },
-  { full: productImage4, thumb: productThum4 },
-];
+type Props = {
+  productData: ProductType;
+};
 
-export default function Product() {
+export default function Product({ productData }: Props) {
   const [qty, setQty] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
@@ -33,17 +23,17 @@ export default function Product() {
           setLightboxOpen={setLightboxOpen}
           imageIndex={imageIndex}
           setImageIndex={setImageIndex}
-          images={images}
           isMobile={isMobile}
+          productData={productData}
         />
-        <ProductInfo qty={qty} setQty={setQty} />
+        <ProductInfo qty={qty} setQty={setQty} productData={productData} />
       </div>
       {!isMobile && lightboxOpen && (
         <Lightbox
           setLightboxOpen={setLightboxOpen}
           imageIndex={imageIndex}
           setImageIndex={setImageIndex}
-          images={images}
+          productData={productData}
         />
       )}
     </div>

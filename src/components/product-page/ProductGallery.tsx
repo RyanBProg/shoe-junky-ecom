@@ -1,20 +1,20 @@
 import styles from "./ProductGallery.module.scss";
-import { ProductImage } from "../../utils/types/types";
+import { ProductType } from "../../utils/types/types";
 
 type Props = {
   setLightboxOpen: React.Dispatch<React.SetStateAction<boolean>>;
   imageIndex: number;
   setImageIndex: React.Dispatch<React.SetStateAction<number>>;
-  images: ProductImage[];
   isMobile: boolean;
+  productData: ProductType;
 };
 
 export default function ProductGallery({
   setLightboxOpen,
   imageIndex,
   setImageIndex,
-  images,
   isMobile,
+  productData,
 }: Props) {
   return (
     <div className={styles.cont__gallery}>
@@ -22,7 +22,7 @@ export default function ProductGallery({
         className={`${styles.product__img} ${
           !isMobile && styles.img__clickable
         }`}
-        src={images[imageIndex].full}
+        src={productData.images[imageIndex].full}
         alt="product image"
         onClick={() => {
           !isMobile && setLightboxOpen(true);
@@ -46,7 +46,7 @@ export default function ProductGallery({
       </button>
       <button
         className={styles.btn__next}
-        disabled={imageIndex === images.length - 1}
+        disabled={imageIndex === productData.images.length - 1}
         onClick={() => {
           setImageIndex((prev) => prev + 1);
         }}>
@@ -61,7 +61,7 @@ export default function ProductGallery({
         </svg>
       </button>
       <div className={styles.thumbnails}>
-        {images.map((item, index) => {
+        {productData.images.map((item, index) => {
           return (
             <img
               key={index}
