@@ -12,12 +12,13 @@ type Props = {
 };
 
 export default function Product({ productData, cartDispatch }: Props) {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
   const isMobile = useMediaQuery("(max-width: 700px)");
 
   const handleCartAdd = () => {
+    qty < 1 && alert("Select a quantity higher than 0");
     cartDispatch({ type: "added_item", id: productData.sku, qty: qty });
   };
 
