@@ -19,7 +19,7 @@ function Item({ cartItem, cartDispatch }: CartItemProps) {
         <div>
           <span>${cartItem.product.salePrice}.00</span>
           <span>x{cartItem.qty}</span>
-          <span>${cartItem.product.price}.00</span>
+          <span>${cartItem.product.salePrice * cartItem.qty}.00</span>
         </div>
       </div>
       <button
