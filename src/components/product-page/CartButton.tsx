@@ -1,9 +1,13 @@
 import cartImage from "../../assets/images/icon-cart.svg";
 import styles from "./ProductInfo.module.scss";
 
-export default function CartButton() {
+type Props = {
+  handleCartAdd: () => void;
+};
+
+export default function CartButton({ handleCartAdd }: Props) {
   return (
-    <button className={styles.btn__cart}>
+    <button className={styles.btn__cart} onClick={handleCartAdd}>
       <img src={cartImage} alt="cart icon" />
       Add to cart
     </button>

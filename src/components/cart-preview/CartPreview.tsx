@@ -48,7 +48,13 @@ export default function CartPreview({
         <>
           <ul>
             {cartState.map((item) => {
-              return <Item cartItem={item} cartDispatch={cartDispatch} />;
+              return (
+                <Item
+                  cartItem={item}
+                  key={item.id}
+                  cartDispatch={cartDispatch}
+                />
+              );
             })}
           </ul>
           <button>Checkout</button>

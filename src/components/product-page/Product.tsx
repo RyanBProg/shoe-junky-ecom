@@ -4,17 +4,22 @@ import styles from "./Product.module.scss";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import Lightbox from "./Lightbox";
-import { ProductType } from "../../utils/types/types";
+import { ProductType, CartAction } from "../../utils/types/types";
 
 type Props = {
   productData: ProductType;
+  cartDispatch: React.Dispatch<CartAction>;
 };
 
-export default function Product({ productData }: Props) {
+export default function Product({ productData, cartDispatch }: Props) {
   const [qty, setQty] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
   const isMobile = useMediaQuery("(max-width: 700px)");
+
+  const handleCartAdd = () => {
+    cartDispatch({ type: "added_item", id: productData.sku, qty: qty });
+  };
 
   return (
     <div>
@@ -26,7 +31,12 @@ export default function Product({ productData }: Props) {
           isMobile={isMobile}
           productData={productData}
         />
-        <ProductInfo qty={qty} setQty={setQty} productData={productData} />
+        <ProductInfo
+          qty={qty}
+          setQty={setQty}
+          productData={productData}
+          handleCartAdd={handleCartAdd}
+        />
       </div>
       {!isMobile && lightboxOpen && (
         <Lightbox

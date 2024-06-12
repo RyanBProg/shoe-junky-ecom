@@ -22,8 +22,6 @@ export type CartItem = {
 export type CartAction = {
   type: CartActionType;
   id: number;
-  price?: number;
-  title?: string;
   qty?: number;
 };
 
