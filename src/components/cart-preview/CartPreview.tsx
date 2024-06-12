@@ -1,7 +1,6 @@
 import { CartItem, CartAction } from "../../utils/types/types";
 import styles from "./CartPreview.module.scss";
 import deleteIcon from "../../assets/images/icon-delete.svg";
-import productThumb from "../../assets/images/image-product-1-thumbnail.jpg";
 
 type CartItemProps = {
   cartItem: CartItem;
@@ -11,13 +10,16 @@ type CartItemProps = {
 function Item({ cartItem, cartDispatch }: CartItemProps) {
   return (
     <li>
-      <img src={productThumb} alt="cart item thumbnail" />
+      <img
+        src="/images/image-product-1-thumbnail.jpg"
+        alt="cart item thumbnail"
+      />
       <div>
-        <span className={styles.product__title}>{cartItem.title}</span>
+        <span className={styles.product__title}>{cartItem.product.title}</span>
         <div>
-          <span>${cartItem.price}.00</span>
+          <span>${cartItem.product.salePrice}.00</span>
           <span>x{cartItem.qty}</span>
-          <span>$350.00</span>
+          <span>${cartItem.product.price}.00</span>
         </div>
       </div>
       <button

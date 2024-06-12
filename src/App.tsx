@@ -8,7 +8,11 @@ import { cartReducer } from "./utils/state/cartState";
 import productsData from "./utils/data/productsData.json";
 
 const testCart: CartItem[] = [
-  { id: 1, title: "Fall Limited Edition Sneakers", price: 125, qty: 2 },
+  {
+    id: 1,
+    qty: 10,
+    product: productsData[0],
+  },
 ];
 
 function App() {
